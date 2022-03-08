@@ -10,7 +10,10 @@ public class Conexion {
     private String user="postgres";
     private String pwd="sainos";
 
-    public Conexion() {
+    public Conexion() {    
+    }
+    
+    public void conectar(){
         try {
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url,user, pwd);
@@ -21,15 +24,9 @@ public class Conexion {
         }finally{
             
         }
-        
-    }
-    
-    public void conectar(){
-        
     }
     
     public void desconectar(){
-        
         try {
             connection.close();
             JOptionPane.showMessageDialog(null, "Cerrada la conexión de la base de datos");
@@ -44,7 +41,7 @@ public class Conexion {
     }
     
     public static void main(String[] args) {
-        
+
     }
     
             
