@@ -1,4 +1,9 @@
-
+/*
+    Autor: Mario Hecxai Valencia Reyes
+    Fecha de creación: 08 de marzo del 2022
+    Fecha de actualización: 09 de marzo del 2022
+    Descripción: Clase Conexión de la base de datos clothingg
+*/
 package db;
 
 import java.sql.Connection;
@@ -54,19 +59,21 @@ public class Conexion {
     public static void main(String[] args) {
         Conexion con = new Conexion();
         String tabla = "producto";
-        try {
-            con.conectar("clothing");
-            con.st.execute("insert into "+tabla+"(codigo, nombre, descripcion, precio, fechacreacion, fechaactualizacion, fechaeliminacion) values('1234567890', 'Refresco', 'Bebida de soda', 15.5, '2022/03/08', '2022/03/08', '2022/03/08');");
-            JOptionPane.showMessageDialog(null, "Se han insertado correctamente los datos a la tabla "+tabla);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.toString());
-        }
+//        try {
+//            con.conectar("clothing");
+//            con.st.execute("insert into "+tabla+"(codigo, nombre, descripcion, precio, fechacreacion, fechaactualizacion, fechaeliminacion) values('1234567891', 'Refresco', 'Bebida de soda', 15.5, '2022/03/08', '2022/03/08', '2022/03/08');");
+//            JOptionPane.showMessageDialog(null, "Se han insertado correctamente los datos a la tabla "+tabla);
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, e.toString());
+//        }
+
         
-        
-        try {
+        int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Alerta!", JOptionPane.YES_NO_OPTION);
+        if (resp==0) {
+            try {
             con.conectar("clothing");
             String sql = "Select * from "+tabla+";";
-            ResultSet rs = con.st.executeQuery("");
+            ResultSet rs = con.st.executeQuery(sql);
             while(rs.next()){
                 String codigo = rs.getString("codigo");
                 String nombre = rs.getString("nombre");
@@ -75,11 +82,18 @@ public class Conexion {
                 String fechaCreacion = rs.getString("fechacreacion");
                 String fechaActualizacion = rs.getString("fechaactualizacion");
                 String fechaEliminacion = rs.getString("fechaeliminacion");
-                
-                System.out.println("Codigo: " +codigo+" Nombre: "+nombre+" Descripción: "+descripcion+" Precio: " );
+                System.out.println("Datos de la tabla "+tabla+"\n");
+                System.out.println("Codigo: " +codigo+" \nNombre: "+nombre+" \nDescripción: "+descripcion+" \nPrecio: "+precio+" \nFecha de creación: "+fechaCreacion+" \nFecha de actualización: "+fechaActualizacion+" \nFecha de eliminación: "+fechaEliminacion );
             }
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString());
         }
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Adiós");
+        }
+        
+
         
     }
 }
