@@ -9,6 +9,7 @@ public class Conexion {
     private String url="jdbc:postgresql://localhost/clothing";
     private String user="postgres";
     private String pwd="sainos";
+    private String url2;
 
     public Conexion() {    
     }
