@@ -18,6 +18,13 @@ public class Conexion {
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url,user, pwd);
             
+            
+            
+            
+            
+            
+            String ul;
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.toString());
             
