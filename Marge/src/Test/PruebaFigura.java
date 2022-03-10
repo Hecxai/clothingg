@@ -1,6 +1,11 @@
 
 package Test;
 
-public class PruebaFigura {
+import java.awt.Color;
+
+public class PruebaFigura extends Rectangulo{
+    public Rectangulo(){
+        getColor();
+    }
     
 }
