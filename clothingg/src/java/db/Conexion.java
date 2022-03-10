@@ -3,7 +3,7 @@
     Fecha de creación: 08 de marzo del 2022
     Fecha de actualización: 09 de marzo del 2022
     Descripción: Clase Conexión de la base de datos clothingg
-*/
+ */
 package db;
 
 import java.sql.Connection;
@@ -12,50 +12,50 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
-
 public class Conexion {
+
     private Connection connection;
-    private String url="jdbc:postgresql://localhost/";
-    private String user="postgres";
-    private String pwd="sainos";
+    private String url = "jdbc:postgresql://localhost/";
+    private String user = "postgres";
+    private String pwd = "Hecxai";
     public Statement st;
-    
-    public Conexion() {    
+
+    public Conexion() {
     }
-    
-    public void conectar(String nombreBD){
+
+    public void conectar(String nombreBD) {
         try {
             Class.forName("org.postgresql.Driver");
-            final String url2="jdbc:postgresql://localhost/"+nombreBD;
-            if(nombreBD.equals("")){
-                connection = DriverManager.getConnection(url, "postgres", "Hecxai");
-            }else{
-                connection = DriverManager.getConnection(url2, "postgres", "Hecxai");
+            final String url2 = "jdbc:postgresql://localhost/" + nombreBD;
+            if (nombreBD.equals("")) {
+                connection = DriverManager.getConnection(url, user, pwd);
+            } else {
+                connection = DriverManager.getConnection(url2, user, pwd);
             }
-            st=connection.createStatement();
-            
+            st = connection.createStatement();
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.toString());
-            
-        }finally{
-            
+
+        } finally {
+
         }
     }
-    
-    public void desconectar(){
+
+    public void desconectar() {
         try {
             connection.close();
             JOptionPane.showMessageDialog(null, "Cerrada la conexión de la base de datos");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.toString());
         }
-        
+
     }
 
     public Connection getConnection() {
         return connection;
     }
-    
+
     public static void main(String[] args) {
         Conexion con = new Conexion();
         String tabla = "producto";
@@ -67,33 +67,29 @@ public class Conexion {
 //            JOptionPane.showMessageDialog(null, e.toString());
 //        }
 
-        
-        int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Alerta!", JOptionPane.YES_NO_OPTION);
-        if (resp==0) {
-            try {
-            con.conectar("clothing");
-            String sql = "Select * from "+tabla+";";
-            ResultSet rs = con.st.executeQuery(sql);
-            while(rs.next()){
-                String codigo = rs.getString("codigo");
-                String nombre = rs.getString("nombre");
-                String descripcion = rs.getString("descripcion");
-                Double precio = rs.getDouble("precio");
-                String fechaCreacion = rs.getString("fechacreacion");
-                String fechaActualizacion = rs.getString("fechaactualizacion");
-                String fechaEliminacion = rs.getString("fechaeliminacion");
-                System.out.println("Datos de la tabla "+tabla+"\n");
-                System.out.println("Codigo: " +codigo+" \nNombre: "+nombre+" \nDescripción: "+descripcion+" \nPrecio: "+precio+" \nFecha de creación: "+fechaCreacion+" \nFecha de actualización: "+fechaActualizacion+" \nFecha de eliminación: "+fechaEliminacion );
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.toString());
-        }
-            
-        }else{
-            JOptionPane.showMessageDialog(null, "Adiós");
-        }
-        
-
-        
+//        int resp = JOptionPane.showConfirmDialog(null, "¿Desea consultar los datos?", "Mensaje", JOptionPane.YES_NO_OPTION);
+//        if (resp==0) {
+//            try {
+//            con.conectar("clothing");
+//            String sql = "Select * from "+tabla+";";
+//            ResultSet rs = con.st.executeQuery(sql);
+//            while(rs.next()){
+//                String codigo = rs.getString("codigo");
+//                String nombre = rs.getString("nombre");
+//                String descripcion = rs.getString("descripcion");
+//                Double precio = rs.getDouble("precio");
+//                String fechaCreacion = rs.getString("fechacreacion");
+//                String fechaActualizacion = rs.getString("fechaactualizacion");
+//                String fechaEliminacion = rs.getString("fechaeliminacion");
+//                System.out.println("Datos de la tabla "+tabla+"\n");
+//                System.out.println("Codigo: " +codigo+" \nNombre: "+nombre+" \nDescripción: "+descripcion+" \nPrecio: "+precio+" \nFecha de creación: "+fechaCreacion+" \nFecha de actualización: "+fechaActualizacion+" \nFecha de eliminación: "+fechaEliminacion );
+//            }
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, e.toString());
+//        }
+//            
+//        }else{
+//            JOptionPane.showMessageDialog(null, "Adiós");
+//        }
     }
 }
