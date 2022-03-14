@@ -8,48 +8,42 @@ package db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import javax.swing.JOptionPane;
+import java.sql.SQLException;
 
 public class Conexion {
 
     private Connection connection;
-    private String url = "jdbc:postgresql://localhost/";
-    private String user = "postgres";
-    private String pwd = "Hecxai";
-    public Statement st;
+    private String url;
+    private String user;
+    private String pwd;
 
     public Conexion() {
+        this.url = "jdbc:postgresql://localhost/clothing";
+        this.user = "postgres";
+        this.pwd = "Hecxai";
     }
 
-    public void conectar(String nombreBD) {
-        try {
-            Class.forName("org.postgresql.Driver");
-            final String url2 = "jdbc:postgresql://localhost/" + nombreBD;
-            if (nombreBD.equals("")) {
-                connection = DriverManager.getConnection(url, user, pwd);
-            } else {
-                connection = DriverManager.getConnection(url2, user, pwd);
+    public void conectar() throws SQLException {
+
+        if (connection == null || connection.isClosed()) {
+
+            try {
+                Class.forName("org.postgresql.Driver");
+
+            } catch (ClassNotFoundException e) {
+                throw new SQLException(e);
             }
-            st = connection.createStatement();
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.toString());
-
-        } finally {
+            connection = DriverManager.getConnection(url, user, pwd);
 
         }
+
     }
 
-    public void desconectar() {
-        try {
+    public void desconectar() throws SQLException{
+        
+        if (connection != null && !connection.isClosed()) {
             connection.close();
-            JOptionPane.showMessageDialog(null, "Cerrada la conexión de la base de datos");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.toString());
         }
-
     }
 
     public Connection getConnection() {
@@ -60,7 +54,7 @@ public class Conexion {
         Conexion con = new Conexion();
         String tabla = "producto";
 //        try {
-//            con.conectar("clothing");
+//            con.conectar();
 //            con.st.execute("insert into "+tabla+"(codigo, nombre, descripcion, precio, fechacreacion, fechaactualizacion, fechaeliminacion) values('1234567891', 'Refresco', 'Bebida de soda', 15.5, '2022/03/08', '2022/03/08', '2022/03/08');");
 //            JOptionPane.showMessageDialog(null, "Se han insertado correctamente los datos a la tabla "+tabla);
 //        } catch (Exception e) {
@@ -68,27 +62,27 @@ public class Conexion {
 //        }
 
 //        int resp = JOptionPane.showConfirmDialog(null, "¿Desea consultar los datos?", "Mensaje", JOptionPane.YES_NO_OPTION);
-//        if (resp==0) {
+//        if (resp == 0) {
 //            try {
-//            con.conectar("clothing");
-//            String sql = "Select * from "+tabla+";";
-//            ResultSet rs = con.st.executeQuery(sql);
-//            while(rs.next()){
-//                String codigo = rs.getString("codigo");
-//                String nombre = rs.getString("nombre");
-//                String descripcion = rs.getString("descripcion");
-//                Double precio = rs.getDouble("precio");
-//                String fechaCreacion = rs.getString("fechacreacion");
-//                String fechaActualizacion = rs.getString("fechaactualizacion");
-//                String fechaEliminacion = rs.getString("fechaeliminacion");
-//                System.out.println("Datos de la tabla "+tabla+"\n");
-//                System.out.println("Codigo: " +codigo+" \nNombre: "+nombre+" \nDescripción: "+descripcion+" \nPrecio: "+precio+" \nFecha de creación: "+fechaCreacion+" \nFecha de actualización: "+fechaActualizacion+" \nFecha de eliminación: "+fechaEliminacion );
+//                con.conectar();
+//                String sql = "Select * from " + tabla + ";";
+//                ResultSet rs = con.executeQuery(sql);
+//                while (rs.next()) {
+//                    String codigo = rs.getString("codigo");
+//                    String nombre = rs.getString("nombre");
+//                    String descripcion = rs.getString("descripcion");
+//                    Double precio = rs.getDouble("precio");
+//                    String fechaCreacion = rs.getString("fechacreacion");
+//                    String fechaActualizacion = rs.getString("fechaactualizacion");
+//                    String fechaEliminacion = rs.getString("fechaeliminacion");
+//                    System.out.println("Datos de la tabla " + tabla + "\n");
+//                    System.out.println("Codigo: " + codigo + " \nNombre: " + nombre + " \nDescripción: " + descripcion + " \nPrecio: " + precio + " \nFecha de creación: " + fechaCreacion + " \nFecha de actualización: " + fechaActualizacion + " \nFecha de eliminación: " + fechaEliminacion);
+//                }
+//            } catch (Exception e) {
+//                JOptionPane.showMessageDialog(null, e.toString());
 //            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, e.toString());
-//        }
-//            
-//        }else{
+//
+//        } else {
 //            JOptionPane.showMessageDialog(null, "Adiós");
 //        }
     }
