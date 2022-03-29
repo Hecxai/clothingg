@@ -1,0 +1,54 @@
+/*
+Autor: Mario Hecxai Valencia Reyes
+Fecha de creación: 26 de marzo del 2022
+Fecha de actualización: 
+Descripción: estilos de listarusuarioservlet
+*/
+
+.stylebod{
+    background-image: linear-gradient(#4568DC, #B06AB3); 
+}
+table{
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    border: 1px solid #D8CEF6;
+    border-collapse: collapse;
+    color: #6E6E6E
+}
+
+th, td{
+    padding: 8px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+}
+
+th:nth-child(1){
+    background-color:#04B486;
+    color: white;
+    text-align:center;
+}
+tr:nth-child(1){
+    background-color:#01DFA5;
+    color: white;
+    text-align:left;
+
+}
+#population{
+    background-color:#01DFA5;
+    color: white;
+    text-align:center;
+}
+tr:nth-child(2), tr:nth-child(4), tr:nth-child(6), tr:nth-child(8), tr:nth-child(10), tr:nth-child(12), tr:nth-child(14){
+    background-color: #FAFAFA;
+}
+tr:nth-child(3), tr:nth-child(5), tr:nth-child(7), tr:nth-child(9), tr:nth-child(11), tr:nth-child(13), tr:nth-child(15){
+    background-color: #E6E6E6;
+}
+
+td:hover{
+    background-color: #F5A9BC;
+}
+
+

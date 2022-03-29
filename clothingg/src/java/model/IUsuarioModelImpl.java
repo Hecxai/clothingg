@@ -25,10 +25,13 @@ public class IUsuarioModelImpl implements IUsuarioModel{
             conexion = new Conexion();
             conexion.conectar();
             connection = conexion.getConnection();
-            String sql = "INSERT INTO usuario(nombreusuario, contrasenia) VALUES(?, ?);";
+            String sql = "INSERT INTO usuario(nombre, sexo, edad, nombreusuario, contraseña) VALUES(?, ?, ?, ?, ?);";
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setString(1, usuario.getNombreUsuario());
-                ps.setString(2, usuario.getContraseña());
+                ps.setString(1, usuario.getNombre());
+                ps.setString(2, usuario.getSexo());
+                ps.setInt(3, usuario.getEdad());
+                ps.setString(4, usuario.getNombreUsuario());
+                ps.setString(5, usuario.getContraseña());
                 ps.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Se han insertado correctamente los datos a la tabla ");
             } catch (Exception e) {
@@ -45,11 +48,13 @@ public class IUsuarioModelImpl implements IUsuarioModel{
             conexion = new Conexion();
             conexion.conectar();
             connection = conexion.getConnection();
-            String sql = "UPDATE usuario SET nombreusuario=?, contrasenia=? WHERE codigo=?;";
+            String sql = "UPDATE usuario SET nombre=?, sexo=?, edad=?, nombreusuario=?, contraseña=? WHERE codigo="+usuario.getCodigo()+";";
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setString(1, usuario.getNombreUsuario());
-                ps.setString(2, usuario.getContraseña());
-                ps.setString(3, usuario.getCodigo());
+                ps.setString(1, usuario.getNombre());
+                ps.setString(2, usuario.getSexo());
+                ps.setInt(3, usuario.getEdad());
+                ps.setString(4, usuario.getNombreUsuario());
+                ps.setString(5, usuario.getContraseña());
                 ps.executeUpdate();
             } 
             conexion.desconectar();
@@ -74,8 +79,11 @@ public class IUsuarioModelImpl implements IUsuarioModel{
                 while (rs.next()) {
                     Usuario usuario = new Usuario();
                     usuario.setCodigo(rs.getString(1));
-                    usuario.setNombreUsuario(rs.getString(2));
-                    usuario.setContraseña(rs.getString(3));
+                    usuario.setNombre(rs.getString(2));
+                    usuario.setSexo(rs.getString(3));
+                    usuario.setEdad(rs.getInt(4));
+                    usuario.setNombreUsuario(rs.getString(5));
+                    usuario.setContraseña(rs.getString(6));
                     listaUsuario.add(usuario);
                     
                 }
@@ -102,8 +110,11 @@ public class IUsuarioModelImpl implements IUsuarioModel{
                 rs = ps.executeQuery();
                 while (rs.next()) {                    
                     usuario.setCodigo(rs.getString(1));
-                    usuario.setNombreUsuario(rs.getString(2));
-                    usuario.setContraseña(rs.getString(3));
+                    usuario.setNombre(rs.getString(2));
+                    usuario.setSexo(rs.getString(3));
+                    usuario.setEdad(rs.getInt(4));
+                    usuario.setNombreUsuario(rs.getString(5));
+                    usuario.setContraseña(rs.getString(6));
                 }
             }
             conexion.desconectar();
@@ -136,16 +147,16 @@ public class IUsuarioModelImpl implements IUsuarioModel{
         IUsuarioModelImpl iumi = new IUsuarioModelImpl();
         Usuario usu= new Usuario();
         //Insertar registro
-//        usu.setNombreUsuario("Juan");
-//        usu.setContraseña("Juan123");
-//        iumi.crearRegistro(usu);
+        usu.setNombreUsuario("Oscar");
+        usu.setContraseña("Melecio");
+        iumi.crearRegistro(usu);
         
         //Actualiar registro
-        Usuario usu2 = new Usuario();
-        usu2.getNombreUsuario();
-        usu2.getContraseña();
-        usu2.getCodigo();
-        iumi.actulizarRegistro(usu2);
+//        Usuario usu2 = new Usuario();
+//        usu2.getNombreUsuario();
+//        usu2.getContraseña();
+//        usu2.getCodigo();
+//        iumi.actulizarRegistro(usu2);
         
 //        Eliminar un registro
 //        iumi.eliminarRegistro(5);

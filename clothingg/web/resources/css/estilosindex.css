@@ -1,0 +1,155 @@
+/*
+    Autor: Mario Hecxai Valencia Reyes
+    Fecha de creación: 26 de marzo del 2022
+    Fecha de actualización:  
+    Descripción: Estilos para index, carrusel y menú de opciones
+
+*/
+.titulo
+{
+    background: linear-gradient(
+        to right, 
+        rgba(254,175,6,1) 10%, 
+        rgba(239,89,48,1) 40%, 
+        rgba(112,35,127,1) 60%, 
+        rgba(37,100,183,1) 90%);
+    text-align: center;
+    color: #fff;
+    font-family: tahoma;
+    font-weight: lighter;
+}
+
+.titulo span{
+    padding: .5em;
+    display: block;  
+    text-transform: uppercase;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+header{
+    height: 64px;
+    background: #000;
+    color: #FFF;
+    display: flex;
+    justify-content: flex-end;
+}
+
+header .logo{
+    font-weight: bolder;
+    font-size: 25px;
+    color: #333;
+}
+
+header .navbar ul{
+    background: #000;
+    display: flex;
+    list-style: none;
+}
+
+header .navbar ul li{
+    position: relative;
+    float: left;
+}
+
+header .navbar ul li a{
+    padding: 15px 20px;
+    color: #FFF;
+    text-decoration: none;
+    line-height: 32px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    display: block;
+
+}
+
+header .navbar ul li a:hover{
+    background: #2C3E50;
+}
+
+
+#btn-menu{
+    display: none;
+}
+
+header label{
+    font-size: 30px;
+    cursor:pointer;
+    display: none;
+}
+
+@media(max-width:768px){
+    header{
+        padding: 20px;
+    }
+
+    header label{
+        display: block;
+        padding-top: 16px;
+        padding-right: 16px;
+        transition: all 0.4s ease;
+    }
+
+    header .navbar{
+        position: absolute;
+        top: 64px; 
+        left:0; 
+        width: 70%;
+        transform: translateX(-100%);
+        transition: all 0.3s;
+    }
+
+    header .navbar ul{
+        flex-direction: column;
+    }
+
+
+    #btn-menu:checked ~ .navbar{
+        transform: translateX(0%);
+
+    }
+
+}
+
+
+
+
+/*Estilos para el slider*/
+
+@keyframes slidy {
+    0% { left: 0%; }
+    20% { left: 0%; }
+    25% { left: -100%; }
+    45% { left: -100%; }
+    50% { left: -200%; }
+    70% { left: -200%; }
+    75% { left: -300%; }
+    95% { left: -300%; }
+    100% { left: -400%; }
+}
+
+body { 
+    margin: 0; 
+} 
+div#slider { 
+    overflow: hidden; 
+}
+
+div#slider figure img { 
+    width: 20%; float: left; 
+}
+div#slider figure { 
+    position: relative;
+    width: 500%;
+    margin: 0;
+    left: 0;
+    text-align: left;
+    font-size: 0;
+    animation: 30s slidy infinite; 
+}

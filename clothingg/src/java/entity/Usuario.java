@@ -13,6 +13,7 @@ public class Usuario extends Persona{
     private String codigo;
     private String nombreUsuario;
     private String contraseña;
+    
 
     public Usuario() {
     }
