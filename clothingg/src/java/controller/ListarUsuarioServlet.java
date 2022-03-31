@@ -1,3 +1,9 @@
+/*
+    Autor: Mario Hecxai Valencia Reyes
+    Fecha de creación: 08 de marzo del 2022
+    Fecha de actualización: 29 de marzo del 2022
+    Descripción: 
+ */
 package controller;
 
 import entity.Usuario;

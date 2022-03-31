@@ -1,3 +1,9 @@
+/*
+    Autor: Mario Hecxai Valencia Reyes
+    Fecha de creación: 07 de marzo del 2022
+    Fecha de actualización: 08 de marzo del 2022
+    Descripción: 
+*/
 
 package model;
 import entity.Usuario;
