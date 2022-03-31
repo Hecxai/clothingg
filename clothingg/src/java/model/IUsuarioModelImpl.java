@@ -33,7 +33,6 @@ public class IUsuarioModelImpl implements IUsuarioModel{
                 ps.setString(4, usuario.getNombreUsuario());
                 ps.setString(5, usuario.getContraseña());
                 ps.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Se han insertado correctamente los datos a la tabla ");
             } catch (Exception e) {
             }
             conexion.desconectar();

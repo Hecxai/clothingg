@@ -29,7 +29,7 @@ public class EditarUsuarioServlet extends HttpServlet {
         out.println("<body>");
         
         
-        out.println("<header>");
+        out.println("<header class='menu'>");
         out.println("<input type='checkbox' id='btn-menu'>");
         out.println("<label for='btn-menu'><i class='fa fa-bars'></i></label>");
         out.println("<nav class='navbar'>");
@@ -48,50 +48,45 @@ public class EditarUsuarioServlet extends HttpServlet {
         out.println("</h1>");
         
         
-        out.println("<div>");
+        out.println("<div class='container'>");
         
-            out.println("<div>");
 
-                out.println("<form action='GuardarEditarUsuarioServlet' method='get'>");
-                  
-
-                    
-
+                out.println("<form id='survey-form' action='GuardarEditarUsuarioServlet' method='get'>");
 
 
                     out.println("<input type='hidden' name='codigo' value='"+usuario.getCodigo()+"'>");
 
-                    out.println("<p>");
-                    out.println("<label>Nombre:</label>");
-                    out.println("<input type='text' name='nombre' value='"+usuario.getNombre()+"'>");
-                    out.println("</p>");
+                    out.println("<div class='form-group'>");
+                    out.println("<label id='name-label' for='name'>Nombre:</label>");
+                    out.println("<input type='text' name='name' value='"+usuario.getNombre()+"' id='name' class='form-control'>");
+                    out.println("</div>");
 
-                    out.println("<p>");
-                    out.println("<label>Sexo:</label>");
-                    out.println("<input type='text' name='sexo' value='"+usuario.getSexo()+"'>");
-                    out.println("</p>");
+                    out.println("<div class='form-group'>");
+                    out.println("<label for='sexo' id='sexo-label'>Sexo:</label>");
+                    out.println("<input type='text' name='sexo' value='"+usuario.getSexo()+"' id='sexo' class='form-control'>");
+                    out.println("</div>");
 
-                    out.println("<p>");
-                    out.println("<label>Edad:</label>");
-                    out.println("<input type='text' name='edad' value='"+usuario.getEdad()+"'>");
-                    out.println("</p>");
+                    out.println("<div class='form-group'>");
+                    out.println("<label id='number-label' for='number'>Edad:</label>");
+                    out.println("<input type='text' name='number' value='"+usuario.getEdad()+"' id='number' class='form-control'>");
+                    out.println("</div>");
 
-                    out.println("<p>");
-                    out.println("<label>Nombre usuario:</label>");
-                    out.println("<input type='text' name='nombreusuario' value='"+usuario.getNombreUsuario()+"'>");
-                    out.println("</p>");
+                    out.println("<div class='form-group'>");
+                    out.println("<label id='user-label' for='user'>Nombre usuario:</label>");
+                    out.println("<input type='text' name='user' value='"+usuario.getNombreUsuario()+"' id='user' class='form-control'>");
+                    out.println("</div>");
 
-                    out.println("<p>");
-                    out.println("<label>Contraseña:</label>");
-                    out.println("<input type='text' name='contraseña' value='"+usuario.getContraseña()+"'>");
-                    out.println("</p>");
+                    out.println("<div class='form-group'>");
+                    out.println("<label id='password-label' for='password'>Contraseña:</label>");
+                    out.println("<input type='text' name='contraseña' value='"+usuario.getContraseña()+"' id='password' class='form-control'>");
+                    out.println("</div>");
 
-                    out.println("<p>");
-                    out.println("<input type='submit' value='Guardar'>");
-                    out.println("</p>");
+                    out.println("<div class='form-group'>");
+                    out.println("<button type='submit' id='submit' class='submit-button'>Enviar</button>");
+                    out.println("</div>");
 
                 out.println("</form>");
-            out.print("</div>");
+
         
         out.println("</div>");
         

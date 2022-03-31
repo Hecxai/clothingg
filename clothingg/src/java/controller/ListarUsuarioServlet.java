@@ -28,7 +28,7 @@ public class ListarUsuarioServlet extends HttpServlet {
 
             out.println("<body>");
             
-                out.println("<header>");
+                out.println("<header class='menu'>");
                 out.println("<input type='checkbox' id='btn-menu'>");
                 out.println("<label for='btn-menu'><i class='fa fa-bars'></i></label>");
                 out.println("<nav class='navbar'>");
@@ -42,7 +42,14 @@ public class ListarUsuarioServlet extends HttpServlet {
                 out.println("</nav>");
                 out.println("</header>");
                 
+                out.println("<h1 class='titulo'>");
+                out.println("<span>Datos de usuarios</span>");
+                out.println("</h1>");
+                
+                out.println("<div class='table-responsive'>");
+                
                 out.println("<table>");
+                    out.println("<thead>");
 
                     out.println("<tr>");
 
@@ -63,6 +70,8 @@ public class ListarUsuarioServlet extends HttpServlet {
                         out.println("<th>Eliminar</th>");
 
                     out.println("</tr>");
+                    
+                    out.println("</thead>");
 
                     IUsuarioService service = new UsuarioServiceImpl();
 
@@ -84,7 +93,8 @@ public class ListarUsuarioServlet extends HttpServlet {
                     out.println("</tbody>");
 
                 out.println("</table>");
-
+                
+                out.println("</div>");
             out.println("</body>");
 
         out.println("</html>");

@@ -1,3 +1,8 @@
+<!--Autor: Heber Esaú-->
+<!--Fecha de creación: 26 de marzo del 2022-->
+<!--Fecha de actualización: -->
+<!--Descripción: -->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,7 +17,7 @@
 
 
     <body>
-        <header>
+        <header class="menu">
             <input type="checkbox" id="btn-menu">
             <label for="btn-menu"><i class="fa fa-bars"></i></label>
             <nav class="navbar">
@@ -27,76 +32,75 @@
             </nav>
         </header>
 
+        <h1 class="titulo">
+            <span>Acerca de nosotros</span>
+        </h1>
 
 
-        <div class="conteiner">
-            <div class="card">
-                <div class="head">
-                    <div class="circle"></div>
-                    <div class="img">
-                        <img src="../resources/img/prube1.jpg">
+        <!-- Acticle de misió y visión -->
+        <article class="article">
+            <h2>Misión:</h2>
+            <p>Ofrecer a nuestros clientes  productos de calidad, a precios cómodos  que cumplan con sus necesidades y exigencias, abarcando sus gustos de acuerdo a su estilo de ver y vivir la vida.</p>
+            <h2>Visión:</h2>
+            <p> Ser una empresa  líder y reconocida en la venta de ropa, lograr también extendernos y crear  nuestras cadenas de almacenes,   proporcionando cada día más un servicio de excelencia a nuestros clientes y que al mismo tiempo nos permitan competir en el mercado nacional con los mejores precios del mercado.</p>
+        </article>
 
-                    </div>
+        
+        <!-- Sección de cards -->
+        <section class="card">
+            <!-- Card uno -->
+            <div class="card_perfil">
+                <div class="card_nombre">
+                    <img><img src="../resources/img/Mario.png" alt=""/>
+                    <h2>Mario Hecxai Valencia Reyes</h2>
+                    <p>Developer Full-stack</p>       
                 </div>
-
-                <div class="description">
-                    <h3> Heber Esaú </h3>
-                    <h4> Desarrollador Backend  </h4>
-                    <p> Este desarrollador, fue el encargado de las partes del sitio web que el usuario ve y con las que interactúa. Esto también se llama a veces desarrollo del lado del cliente o del lado del navegador. </p>
+                <hr>
+                <div class="card_descripcion">
+                    <p>desarrollador que trabaja tanto el interfaz (“front-end”), como también la parte no visible (“back-end”) de un sitio web o aplicación.</p>
                 </div>
-
-                <div class="contact">
-                    <a href="https://translate.google.com/?u=[url]">Contacto</a>  
-                </div>
-            </div>
-
-
-
-
-            <div class="card">
-                <div class="head">
-                    <div class="circle"></div>
-                    <div class="img">
-                        <img src="../resources/img/cara1.png">
-
-                    </div>
-                </div>
-
-                <div class="description">
-                    <h3> Griselda Medina </h3>
-                    <h4> Desarrollador Frontend </h4>
-                    <p>Esta desarrolladora se encargo de programar el código para hacer que la interfaz sea atractiva, intuitiva y que la experiencia</p>
-                </div>
-
-                <div class="contact">
-                    <a href="https://translate.google.com/?u=[url]">Contacto</a> 
+                <hr>
+                <div class="card_buttom">
+                    <a class="enlace" href="#">Saber más</a>
                 </div>
             </div>
 
-
-            <div class="card">
-                <div class="head">
-                    <div class="circle"></div>
-                    <div class="img">
-                        <img src="../resources/img/prueba3.png">
-
-                    </div>
+            <!-- Card dos -->
+            <div class="card_perfil">
+                <div class="card_nombre">
+                    <img><img src="../resources/img/Gris.png" alt=""/>
+                    <h2>Griselda Medina</h2>
+                    <p>Developer Back-end</p>       
                 </div>
-
-                <div class="description">
-                    <h3> Mario Hecxai</h3>
-                    <h4> Desarrollador Full Stack </h4>
-                    <p> Encargado de manejar los aspectos relacionados con la creación y el mantenimiento de la aplicación. </p>
+                <hr>
+                <div class="card_descripcion">
+                    <p></p>
                 </div>
-
-                <div class="contact">
-                    <a href="https://translate.google.com/?u=[url]">Contacto</a> 
+                <hr>
+                <div class="card_buttom">
+                    <a class="enlace" href="#">Saber más</a>
                 </div>
             </div>
-        </div>   
 
+            <!-- Card tres -->
+            <div class="card_perfil">
+                <div class="card_nombre">
+                    <img><img src="../resources/img/Heber.png" alt=""/>
+                    <h2>Heber Esau</h2>
+                    <p>Developer Front-end</p>       
+                </div>
+                <hr>
+                <div class="card_descripcion">
+                    <p></p>
+                </div>
+                <hr>
+                <div class="card_buttom">
+                    <a class="enlace" href="#">Saber más</a>
+                </div>
+            </div>
 
-        <<h4>title</h4>
+        </section>
+
 
     </body>
 </html>
